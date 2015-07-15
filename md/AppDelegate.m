@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MDNotesCollectionView.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+    MDNotesCollectionView *collectionView = (MDNotesCollectionView *)navController.topViewController;
+    collectionView.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 
