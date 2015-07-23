@@ -8,7 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class MDNoteCollectionViewCell;
+
+@protocol MDNoteCollectionViewCellDelegate <NSObject>
+
+- (void)noteColletionViewCellPressed:(MDNoteCollectionViewCell *)cell;
+- (void)deleteNote:(MDNoteCollectionViewCell *)cell;
+
+@end
+
 @interface MDNoteCollectionViewCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) NSObject <MDNoteCollectionViewCellDelegate> *delegate;
+
+- (IBAction)readMorePressed:(id)sender;
 
 @end

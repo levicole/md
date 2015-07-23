@@ -10,4 +10,12 @@
 
 @implementation MDNoteCollectionViewCell
 
+- (IBAction)readMorePressed:(id)sender {
+    [self.delegate noteColletionViewCellPressed:self];
+}
+
+- (IBAction)deleteNote:(id)sender {
+    [self.delegate deleteNote:self];
+}
+
 @end

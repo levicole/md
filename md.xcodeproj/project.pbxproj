@@ -16,6 +16,7 @@
 		05EEC1341B55F5EA00035243 /* mdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1331B55F5EA00035243 /* mdTests.m */; };
 		05EEC13F1B55F6F300035243 /* MDNotesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC13E1B55F6F300035243 /* MDNotesCollectionView.m */; };
 		05EEC1451B5619E600035243 /* MDNoteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1441B5619E600035243 /* MDNoteCollectionViewCell.m */; };
+		05EEC1831B57194600035243 /* MDSingleNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1821B57194600035243 /* MDSingleNoteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		05EEC13E1B55F6F300035243 /* MDNotesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNotesCollectionView.m; sourceTree = "<group>"; };
 		05EEC1431B5619E600035243 /* MDNoteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNoteCollectionViewCell.h; sourceTree = "<group>"; };
 		05EEC1441B5619E600035243 /* MDNoteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNoteCollectionViewCell.m; sourceTree = "<group>"; };
+		05EEC1811B57194600035243 /* MDSingleNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSingleNoteViewController.h; sourceTree = "<group>"; };
+		05EEC1821B57194600035243 /* MDSingleNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSingleNoteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 		05EEC1131B55F5EA00035243 /* md */ = {
 			isa = PBXGroup;
 			children = (
+				05EEC1811B57194600035243 /* MDSingleNoteViewController.h */,
+				05EEC1821B57194600035243 /* MDSingleNoteViewController.m */,
 				05EEC1431B5619E600035243 /* MDNoteCollectionViewCell.h */,
 				05EEC1441B5619E600035243 /* MDNoteCollectionViewCell.m */,
 				05EEC1181B55F5EA00035243 /* AppDelegate.h */,
@@ -232,6 +237,7 @@
 				05EEC11D1B55F5EA00035243 /* md.xcdatamodeld in Sources */,
 				05EEC1171B55F5EA00035243 /* main.m in Sources */,
 				05EEC13F1B55F6F300035243 /* MDNotesCollectionView.m in Sources */,
+				05EEC1831B57194600035243 /* MDSingleNoteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

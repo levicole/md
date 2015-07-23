@@ -8,12 +8,13 @@
 
 #import "MDNotesCollectionView.h"
 #import "MDNoteCollectionViewCell.h"
+#import "MDSingleNoteViewController.h"
 #import <CoreData/CoreData.h>
 
-@interface MDNotesCollectionView ()
+@interface MDNotesCollectionView () <MDNoteCollectionViewCellDelegate,MDSingleNoteViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSManagedObject *currentNote;
 
 @end
 
@@ -21,12 +22,10 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
-- (void)awakeFromNib {
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.fetchedResultsController setDelegate:self];
+    NSLog(@"foo");
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
 //    [self loadDumbyData];
@@ -60,15 +59,24 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    MDSingleNoteViewController *snVC = [segue destinationViewController];
+    if (self.currentNote == nil) {
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+        snVC.note = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    } else {
+        snVC.note = self.currentNote;
+    }
+    snVC.delegate = self;
+    self.currentNote = nil;
 }
-*/
+
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -88,6 +96,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MDNoteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.delegate = self;
     cell.titleLabel.text = [managedObject valueForKey:@"title"];
     
     return cell;
@@ -147,7 +156,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 //    aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -162,4 +171,62 @@ static NSString * const reuseIdentifier = @"Cell";
     return _fetchedResultsController;
 }
 
+-(void)noteColletionViewCellPressed:(MDNoteCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    
+    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    self.currentNote = managedObject;
+    
+    [self performSegueWithIdentifier:@"toNoteDetailView" sender:self];
+}
+
+- (void) deleteNote:(MDNoteCollectionViewCell *)cell {
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    
+    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if (managedObject) {
+        NSLog(@"Deleting");
+        [self.fetchedResultsController.managedObjectContext deleteObject:managedObject];
+    }
+}
+
+- (void)saveNote:(NSManagedObject *)note {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSError *error;
+    NSLog(@"Saving");
+    [context save:&error];
+    if (error) {
+        NSLog(@"error!");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }
+    [self.collectionView reloadData];
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+
+- (void) controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert: {
+            NSLog(@"Insert");
+            break;
+        }
+        case NSFetchedResultsChangeDelete: {
+            NSLog(@"Deleted");
+            [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+            break;
+        }
+        case NSFetchedResultsChangeUpdate: {
+            NSLog(@"Update");
+            break;
+        }
+        case NSFetchedResultsChangeMove: {
+            NSLog(@"Move");
+            //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+    }
+}
 @end
