@@ -12,7 +12,6 @@
 		056734A61B61D7CD0046D093 /* MDShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0567349B1B61D7CD0046D093 /* MDShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		056734B11B61E4700046D093 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734B01B61E4700046D093 /* MDDataManager.m */; };
 		056734B21B61E4700046D093 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734B01B61E4700046D093 /* MDDataManager.m */; };
-		056734B31B61EE110046D093 /* md.entitlements in Sources */ = {isa = PBXBuildFile; fileRef = 056734AB1B61E2AA0046D093 /* md.entitlements */; };
 		056734B41B61EE110046D093 /* md.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC11B1B55F5EA00035243 /* md.xcdatamodeld */; };
 		05EEC1171B55F5EA00035243 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1161B55F5EA00035243 /* main.m */; };
 		05EEC11A1B55F5EA00035243 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1191B55F5EA00035243 /* AppDelegate.m */; };
@@ -344,7 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				056734B31B61EE110046D093 /* md.entitlements in Sources */,
 				056734B41B61EE110046D093 /* md.xcdatamodeld in Sources */,
 				056734B21B61E4700046D093 /* MDDataManager.m in Sources */,
 				056734A11B61D7CD0046D093 /* ShareViewController.m in Sources */,
@@ -596,6 +594,7 @@
 				056734A81B61D7CD0046D093 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05EEC10C1B55F5EA00035243 /* Build configuration list for PBXProject "md" */ = {
 			isa = XCConfigurationList;

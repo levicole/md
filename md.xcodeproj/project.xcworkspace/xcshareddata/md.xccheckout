@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>AC2E7156-B632-43B9-A5EC-D83103E7CABB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>md</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>7430ADE26C01AD8FB8976FFFCD24E120970BB0C2</key>
 		<string>github.com:levicole/md.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>md.xcodeproj</string>
+	<string>md.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7430ADE26C01AD8FB8976FFFCD24E120970BB0C2</key>
