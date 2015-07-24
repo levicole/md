@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		056734A11B61D7CD0046D093 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734A01B61D7CD0046D093 /* ShareViewController.m */; };
+		056734A31B61D7CD0046D093 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056734A21B61D7CD0046D093 /* MainInterface.storyboard */; };
+		056734A61B61D7CD0046D093 /* MDShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0567349B1B61D7CD0046D093 /* MDShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		056734B11B61E4700046D093 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734B01B61E4700046D093 /* MDDataManager.m */; };
+		056734B21B61E4700046D093 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734B01B61E4700046D093 /* MDDataManager.m */; };
+		056734B31B61EE110046D093 /* md.entitlements in Sources */ = {isa = PBXBuildFile; fileRef = 056734AB1B61E2AA0046D093 /* md.entitlements */; };
+		056734B41B61EE110046D093 /* md.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC11B1B55F5EA00035243 /* md.xcdatamodeld */; };
 		05EEC1171B55F5EA00035243 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1161B55F5EA00035243 /* main.m */; };
 		05EEC11A1B55F5EA00035243 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1191B55F5EA00035243 /* AppDelegate.m */; };
 		05EEC11D1B55F5EA00035243 /* md.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC11B1B55F5EA00035243 /* md.xcdatamodeld */; };
@@ -20,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		056734A41B61D7CD0046D093 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05EEC1091B55F5EA00035243 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0567349A1B61D7CD0046D093;
+			remoteInfo = MDShare;
+		};
 		05EEC12E1B55F5EA00035243 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 05EEC1091B55F5EA00035243 /* Project object */;
@@ -29,7 +43,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		056734AA1B61D7CD0046D093 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				056734A61B61D7CD0046D093 /* MDShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0567349B1B61D7CD0046D093 /* MDShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MDShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0567349E1B61D7CD0046D093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0567349F1B61D7CD0046D093 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		056734A01B61D7CD0046D093 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		056734A21B61D7CD0046D093 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		056734AB1B61E2AA0046D093 /* md.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = md.entitlements; sourceTree = "<group>"; };
+		056734AF1B61E4700046D093 /* MDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDataManager.h; sourceTree = "<group>"; };
+		056734B01B61E4700046D093 /* MDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataManager.m; sourceTree = "<group>"; };
+		056734B51B61EEFD0046D093 /* MDShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MDShare.entitlements; sourceTree = "<group>"; };
 		05EEC1111B55F5EA00035243 /* md.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = md.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EEC1151B55F5EA00035243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05EEC1161B55F5EA00035243 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,6 +88,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		056734981B61D7CD0046D093 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05EEC10E1B55F5EA00035243 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,11 +112,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0567349C1B61D7CD0046D093 /* MDShare */ = {
+			isa = PBXGroup;
+			children = (
+				056734B51B61EEFD0046D093 /* MDShare.entitlements */,
+				0567349F1B61D7CD0046D093 /* ShareViewController.h */,
+				056734A01B61D7CD0046D093 /* ShareViewController.m */,
+				056734A21B61D7CD0046D093 /* MainInterface.storyboard */,
+				0567349D1B61D7CD0046D093 /* Supporting Files */,
+			);
+			path = MDShare;
+			sourceTree = "<group>";
+		};
+		0567349D1B61D7CD0046D093 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0567349E1B61D7CD0046D093 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		05EEC1081B55F5EA00035243 = {
 			isa = PBXGroup;
 			children = (
+				056734AF1B61E4700046D093 /* MDDataManager.h */,
+				056734B01B61E4700046D093 /* MDDataManager.m */,
 				05EEC1131B55F5EA00035243 /* md */,
 				05EEC1301B55F5EA00035243 /* mdTests */,
+				0567349C1B61D7CD0046D093 /* MDShare */,
 				05EEC1121B55F5EA00035243 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +149,7 @@
 			children = (
 				05EEC1111B55F5EA00035243 /* md.app */,
 				05EEC12D1B55F5EA00035243 /* mdTests.xctest */,
+				0567349B1B61D7CD0046D093 /* MDShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +157,7 @@
 		05EEC1131B55F5EA00035243 /* md */ = {
 			isa = PBXGroup;
 			children = (
+				056734AB1B61E2AA0046D093 /* md.entitlements */,
 				05EEC1811B57194600035243 /* MDSingleNoteViewController.h */,
 				05EEC1821B57194600035243 /* MDSingleNoteViewController.m */,
 				05EEC1431B5619E600035243 /* MDNoteCollectionViewCell.h */,
@@ -135,6 +204,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0567349A1B61D7CD0046D093 /* MDShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 056734A91B61D7CD0046D093 /* Build configuration list for PBXNativeTarget "MDShare" */;
+			buildPhases = (
+				056734971B61D7CD0046D093 /* Sources */,
+				056734981B61D7CD0046D093 /* Frameworks */,
+				056734991B61D7CD0046D093 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MDShare;
+			productName = MDShare;
+			productReference = 0567349B1B61D7CD0046D093 /* MDShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		05EEC1101B55F5EA00035243 /* md */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05EEC1371B55F5EA00035243 /* Build configuration list for PBXNativeTarget "md" */;
@@ -142,10 +228,12 @@
 				05EEC10D1B55F5EA00035243 /* Sources */,
 				05EEC10E1B55F5EA00035243 /* Frameworks */,
 				05EEC10F1B55F5EA00035243 /* Resources */,
+				056734AA1B61D7CD0046D093 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				056734A51B61D7CD0046D093 /* PBXTargetDependency */,
 			);
 			name = md;
 			productName = md;
@@ -179,8 +267,23 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Levi Kennedy";
 				TargetAttributes = {
+					0567349A1B61D7CD0046D093 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = W9NE94TF4H;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					05EEC1101B55F5EA00035243 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = W9NE94TF4H;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					05EEC12C1B55F5EA00035243 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -203,11 +306,20 @@
 			targets = (
 				05EEC1101B55F5EA00035243 /* md */,
 				05EEC12C1B55F5EA00035243 /* mdTests */,
+				0567349A1B61D7CD0046D093 /* MDShare */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		056734991B61D7CD0046D093 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056734A31B61D7CD0046D093 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05EEC10F1B55F5EA00035243 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +340,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		056734971B61D7CD0046D093 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				056734B31B61EE110046D093 /* md.entitlements in Sources */,
+				056734B41B61EE110046D093 /* md.xcdatamodeld in Sources */,
+				056734B21B61E4700046D093 /* MDDataManager.m in Sources */,
+				056734A11B61D7CD0046D093 /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05EEC10D1B55F5EA00035243 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +358,7 @@
 				05EEC1451B5619E600035243 /* MDNoteCollectionViewCell.m in Sources */,
 				05EEC11A1B55F5EA00035243 /* AppDelegate.m in Sources */,
 				05EEC11D1B55F5EA00035243 /* md.xcdatamodeld in Sources */,
+				056734B11B61E4700046D093 /* MDDataManager.m in Sources */,
 				05EEC1171B55F5EA00035243 /* main.m in Sources */,
 				05EEC13F1B55F6F300035243 /* MDNotesCollectionView.m in Sources */,
 				05EEC1831B57194600035243 /* MDSingleNoteViewController.m in Sources */,
@@ -252,6 +376,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		056734A51B61D7CD0046D093 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0567349A1B61D7CD0046D093 /* MDShare */;
+			targetProxy = 056734A41B61D7CD0046D093 /* PBXContainerItemProxy */;
+		};
 		05EEC12F1B55F5EA00035243 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 05EEC1101B55F5EA00035243 /* md */;
@@ -279,6 +408,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		056734A71B61D7CD0046D093 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MDShare/MDShare.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MDShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		056734A81B61D7CD0046D093 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MDShare/MDShare.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MDShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		05EEC1351B55F5EA00035243 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -365,9 +528,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = md/md.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = md/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -375,9 +542,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = md/md.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = md/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -418,6 +589,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		056734A91B61D7CD0046D093 /* Build configuration list for PBXNativeTarget "MDShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				056734A71B61D7CD0046D093 /* Debug */,
+				056734A81B61D7CD0046D093 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		05EEC10C1B55F5EA00035243 /* Build configuration list for PBXProject "md" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -434,6 +613,7 @@
 				05EEC1391B55F5EA00035243 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05EEC13A1B55F5EA00035243 /* Build configuration list for PBXNativeTarget "mdTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +622,7 @@
 				05EEC13C1B55F5EA00035243 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
