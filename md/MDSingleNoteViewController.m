@@ -22,6 +22,20 @@
 
 @synthesize note = _note;
 
+- (IBAction)shareNote:(id)sender {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    if (self.bodyTextView.text.length > 0) {
+        [itemsToShare addObject:self.bodyTextView.text];
+    }
+    
+    if ([itemsToShare count] > 0) {
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self resignFirstResponder];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+}
+
 - (void)saveNote {
     // set up a delegate to call a save method on the collectionviewcontroller
     [self.note setValue:self.titleTextField.text forKey:@"title"];
