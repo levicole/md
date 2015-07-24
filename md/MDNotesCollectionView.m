@@ -133,6 +133,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
+
 #pragma mark - NSFetchedResultsController / CoreData
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -228,5 +229,10 @@ static NSString * const reuseIdentifier = @"Cell";
             break;
         }
     }
+}
+
+- (void) reloadData {
+    self.fetchedResultsController = nil;
+    [self.collectionView reloadData];
 }
 @end
