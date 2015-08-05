@@ -50,7 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    // set the titleTextField as the firstResponder
     self.titleTextField.delegate = self;
     self.bodyTextView.delegate = self;
     

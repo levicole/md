@@ -11,10 +11,11 @@
 #import "MDSingleNoteViewController.h"
 #import <CoreData/CoreData.h>
 
-@interface MDNotesCollectionView () <MDNoteCollectionViewCellDelegate,MDSingleNoteViewControllerDelegate, NSFetchedResultsControllerDelegate>
+@interface MDNotesCollectionView () <MDNoteCollectionViewCellDelegate,MDSingleNoteViewControllerDelegate, NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSManagedObject *currentNote;
+@property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
@@ -25,7 +26,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.fetchedResultsController setDelegate:self];
-    NSLog(@"foo");
+    
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.frame), 44)];
+    [self.searchBar setPlaceholder:@"Search Notes"];
+    self.searchBar.delegate = self;
+    [self.collectionView addSubview:self.searchBar];
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
 //    [self loadDumbyData];
@@ -227,6 +233,46 @@ static NSString * const reuseIdentifier = @"Cell";
             //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         }
+    }
+}
+
+# pragma mark - UISearchBarDelegate
+
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar setText:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+    [self.fetchedResultsController.fetchRequest setPredicate:nil];
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    
+    if (error != nil) {
+        NSLog(@"Something went horribly wrong!");
+    } else {
+        [self.collectionView reloadData];
+    }
+}
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSFetchRequest *fr = self.fetchedResultsController.fetchRequest;
+    NSLog(@"searchText: %@", searchText);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS %@", searchText];
+    
+    [fr setPredicate:predicate];
+    
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    
+    if (error != nil) {
+        NSLog(@"Something went horribly wrong!");
+    } else {
+        [self.collectionView reloadData];
+        [searchBar becomeFirstResponder];
     }
 }
 @end
