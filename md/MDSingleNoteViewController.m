@@ -8,13 +8,14 @@
 
 #import "MDSingleNoteViewController.h"
 
-@interface MDSingleNoteViewController () <UITextFieldDelegate, UITextViewDelegate>
+@interface MDSingleNoteViewController () <UITextFieldDelegate, UITextViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *bodyTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewBottomConstraint;
 @property (strong, nonatomic) NSString *noteTitle;
 @property (strong, nonatomic) NSString *noteBody;
+@property (strong, nonatomic) UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -53,6 +54,12 @@
     // set the titleTextField as the firstResponder
     self.titleTextField.delegate = self;
     self.bodyTextView.delegate = self;
+    [self enableDataDetectors];
+    
+    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textViewTapped:)];
+    self.tapGesture.delegate = self;
+    self.tapGesture.numberOfTapsRequired = 1;
+    [self.bodyTextView addGestureRecognizer:self.tapGesture];
     
     if (self.noteTitle != nil) {
         [self.titleTextField setText:self.noteTitle];
@@ -104,7 +111,26 @@
     [self saveNote];
 }
 
+- (void) textViewTapped:(UIGestureRecognizer *)sender {
+//    CGPoint location = [sender locationInView:self.bodyTextView];
+//    NSLog(@"%@", NSStringFromCGPoint(location));
+//    UITextPosition *tapPosition = [self.bodyTextView closestPositionToPoint:location];
+//    UITextRange *rangeOfTap = [self.bodyTextView.tokenizer rangeEnclosingPosition:tapPosition withGranularity:UITextGranularityWord inDirection:UITextLayoutDirectionRight];
+//    NSInteger loc = [self.bodyTextView offsetFromPosition:[self.bodyTextView beginningOfDocument] toPosition:rangeOfTap.start];
+//    NSInteger length   = [self.bodyTextView offsetFromPosition:rangeOfTap.start toPosition:rangeOfTap.end];
+//    NSRange rangeOfTappedWord = NSMakeRange(loc, length);
+    
+    [self disableDataDetectors];
+    
+    [self.bodyTextView becomeFirstResponder];
+}
+
+
 #pragma mark - UITextViewDelegate
+
+- (void) textViewDidEndEditing:(UITextView *)textView {
+    [self enableDataDetectors];
+}
 
 - (void) showSaveButton {
     self.navigationItem.rightBarButtonItem.tintColor = nil;
@@ -113,6 +139,21 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+#pragma mark - misc
+
+- (void) enableDataDetectors {
+    self.bodyTextView.editable = NO;
+    self.bodyTextView.selectable = YES;
+    self.bodyTextView.dataDetectorTypes = UIDataDetectorTypeAll;
+}
+
+- (void) disableDataDetectors {
+    self.bodyTextView.dataDetectorTypes = UIDataDetectorTypeNone;
+    self.bodyTextView.selectable = NO;
+    self.bodyTextView.editable = YES;
 }
 
 @end
