@@ -13,6 +13,7 @@
 		056734B11B61E4700046D093 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734B01B61E4700046D093 /* MDDataManager.m */; };
 		056734B21B61E4700046D093 /* MDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 056734B01B61E4700046D093 /* MDDataManager.m */; };
 		056734B41B61EE110046D093 /* md.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC11B1B55F5EA00035243 /* md.xcdatamodeld */; };
+		059BACA81B74F97E006B0166 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059BACA71B74F97E006B0166 /* CloudKit.framework */; };
 		05EEC1171B55F5EA00035243 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1161B55F5EA00035243 /* main.m */; };
 		05EEC11A1B55F5EA00035243 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC1191B55F5EA00035243 /* AppDelegate.m */; };
 		05EEC11D1B55F5EA00035243 /* md.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05EEC11B1B55F5EA00035243 /* md.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 		056734AF1B61E4700046D093 /* MDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDataManager.h; sourceTree = "<group>"; };
 		056734B01B61E4700046D093 /* MDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDataManager.m; sourceTree = "<group>"; };
 		056734B51B61EEFD0046D093 /* MDShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MDShare.entitlements; sourceTree = "<group>"; };
+		059BACA71B74F97E006B0166 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		05EEC1111B55F5EA00035243 /* md.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = md.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05EEC1151B55F5EA00035243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05EEC1161B55F5EA00035243 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059BACA81B74F97E006B0166 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,7 @@
 		05EEC1081B55F5EA00035243 = {
 			isa = PBXGroup;
 			children = (
+				059BACA71B74F97E006B0166 /* CloudKit.framework */,
 				056734AF1B61E4700046D093 /* MDDataManager.h */,
 				056734B01B61E4700046D093 /* MDDataManager.m */,
 				05EEC1131B55F5EA00035243 /* md */,
@@ -280,6 +284,9 @@
 						DevelopmentTeam = W9NE94TF4H;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};

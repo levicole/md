@@ -71,7 +71,7 @@
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "com.levicole.md" in the application's documents directory.
-    return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.levicole.md"];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
