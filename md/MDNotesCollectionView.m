@@ -23,6 +23,23 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:NSPersistentStoreCoordinatorStoresDidChangeNotification
+     object:self.managedObjectContext.persistentStoreCoordinator
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification *note) {
+         NSLog(@"TEST");
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(persistentStoreChanged:) name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:self.managedObjectContext.persistentStoreCoordinator];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(importData:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:self.managedObjectContext.persistentStoreCoordinator];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.fetchedResultsController setDelegate:self];
@@ -32,9 +49,29 @@ static NSString * const reuseIdentifier = @"Cell";
     self.searchBar.delegate = self;
     [self.collectionView addSubview:self.searchBar];
     
+    NSLog(@"%@", self.managedObjectContext.persistentStoreCoordinator);
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
 //    [self loadDumbyData];
+}
+
+- (void) importData:(NSNotification *)note {
+    [self.managedObjectContext performBlock:^{
+        [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
+        [self.collectionView reloadData];
+    }];
+}
+
+- (void) persistentStoreChanged:(NSNotification *)note {
+    NSError *error;
+    [self.fetchedResultsController performFetch:&error];
+    
+    if (error) {
+        NSLog(@"Error: %@", error);
+    } else {
+        [self.collectionView reloadData];
+    }
 }
 
 - (void) loadDumbyData {
